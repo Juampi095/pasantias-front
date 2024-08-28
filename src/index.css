@@ -1,0 +1,72 @@
+body{
+    font-family: ' Arial, sans-serif';
+}
+
+.titleH1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    color: burlywood;
+    text-align: center;
+ 
+ }
+ 
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+   
+    height: 20px;
+    width: 300px;
+    font-size: 18px;
+   
+}
+
+input[type='text']{
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+textarea{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 3px solid lightblue ;
+    resize: none;
+    height: 50px;
+    width: 300px;
+    font-size: 14px;
+}
+
+button{
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button-create{
+    background-color: rgb(7, 84, 201);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.button-edit{
+    background-color: rgb(10, 175, 10);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+
+}
+
+.button-delete{
+    background-color: red;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.button-create:hover, .button-edit:hover, .button-delete:hover{
+opacity: 1;
+}
