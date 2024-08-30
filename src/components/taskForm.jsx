@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { createTask, getTask, updateTask } from "../services/taskServices";
 
 export const TaskForm = ({ taskId, onTaskUpdated }) => {
-  const [task, setTask] = useState({ title: "", description: "" }); //comienza vacio
+  const [task, setTask] = useState({ title: "", description: "" }); // comienza vacío
 
   useEffect(() => {
     if (taskId) {
@@ -11,29 +12,48 @@ export const TaskForm = ({ taskId, onTaskUpdated }) => {
   }, [taskId]);
 
   const handleChange = (e) => {
-    setTask({ ...task, [e.target.name]: e.target.value }); //explicacion mas abajo
+    setTask({ ...task, [e.target.name]: e.target.value }); // actualización del estado del formulario
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); //Evita que se envie vacio
+    e.preventDefault(); // Evita que se envíe vacío
+
     if (taskId) {
-      updateTask(taskId, task).then(() => onTaskUpdated());
+      updateTask(taskId, task).then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Tarea actualizada",
+          text: "La tarea se actualizó correctamente.",
+          confirmButtonColor: "#2980b9",
+        });
+        onTaskUpdated();
+      });
     } else {
-      createTask(task).then(() => onTaskUpdated());
+      createTask(task).then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Tarea creada",
+          text: "La tarea se creó correctamente.",
+          confirmButtonColor: "#2980b9",
+        });
+        onTaskUpdated();
+      });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
+        className="task-input"
         value={task.title}
         onChange={handleChange}
         placeholder="Title"
       />
       <textarea
         name="description"
+        className="task-textarea"
         value={task.description}
         onChange={handleChange}
         placeholder="Description"

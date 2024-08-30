@@ -4,15 +4,17 @@ import { TaskList } from "../components/taskList";
 
 export const Home = () => {
   const [selectedTaskId, setSelectedTaskId] = useState(null);
+  const [reloadTasks, setReloadTasks] = useState(false);
 
   const handleTaskUpdated = () => {
-    setSelectedTaskId(null);
+    setSelectedTaskId(null); // Deselecciona la tarea después de actualizarla
+    setReloadTasks(!reloadTasks); // Cambia el estado para recargar las tareas
   };
 
   return (
     <div>
       <TaskForm taskId={selectedTaskId} onTaskUpdated={handleTaskUpdated} />
-      <TaskList onEditTask={selectedTaskId} />
+      <TaskList onEditTask={setSelectedTaskId} reload={reloadTasks} />
     </div>
   );
 };

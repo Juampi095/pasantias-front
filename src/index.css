@@ -1,72 +1,125 @@
-body{
-    font-family: ' Arial, sans-serif';
+/* Estilos generales */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
-.titleH1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-style: italic;
-    color: burlywood;
+/* Estilo del título */
+.titleH1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    color: #2c3e50;
     text-align: center;
- 
- }
- 
-form{
+    margin-bottom: 30px;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Estilo del formulario */
+.task-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px; /* Separación entre formulario y lista */
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
 }
 
-input{
-   
-    height: 20px;
-    width: 300px;
-    font-size: 18px;
-   
-}
-
-input[type='text']{
-    border: 2px solid blue;
+.task-input, .task-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
     border-radius: 5px;
+    border: 2px solid #bdc3c7;
+    font-size: 16px;
 }
 
-textarea{
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 3px solid lightblue ;
+.task-input {
+    height: 40px;
+}
+
+.task-textarea {
+    height: 100px;
     resize: none;
-    height: 50px;
-    width: 300px;
-    font-size: 14px;
 }
 
-button{
+button {
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+/* Estilo del botón de crear */
+.button-create {
+    background-color: #2980b9;
 }
 
-.button-create{
-    background-color: rgb(7, 84, 201);
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+/* Estilo del botón de editar */
+.button-delete {
+    background-color: #e74c3c;
 }
 
-.button-edit{
-    background-color: rgb(10, 175, 10);
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-
+.button-delete:hover {
+    background-color: #c0392b;
 }
 
-.button-delete{
-    background-color: red;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+/* Estilo del botón de editar */
+.button-edit {
+    background-color: #20e241;
 }
 
-.button-create:hover, .button-edit:hover, .button-delete:hover{
-opacity: 1;
+.button-edit:hover {
+    background-color: #1ecf3c;
+}
+
+
+/* Estilo de la lista de tareas */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.task-header, .task-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 10px;
+    margin-top: 50px;
+    border-bottom: 2px solid #bdc3c7;
+    width: 80%;
+}
+
+.task-header {
+    font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    border-radius: 8px 8px 0 0;
+}
+
+.task-column, .description-column, .actions-column {
+    padding: 5px;
+    text-align: center;
+}
+
+.actions-column {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
 }
